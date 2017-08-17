@@ -1,6 +1,7 @@
 #!/bin/sh
 
-DEST_DIR=/usr/sbin
+tmp=`which shutdown`
+DEST_DIR=${tmp%/*}
 BAK_DIR=${DEST_DIR}/old_suredown
 SOURCE_FILE=./suredown.sh
 
