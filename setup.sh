@@ -1,11 +1,11 @@
 #!/bin/sh
 
-tmp=`which shutdown`
-DEST_DIR=${tmp%/*}
-BAK_DIR=${DEST_DIR}/old_suredown
+DEST_DIR=
 SOURCE_FILE=./suredown.sh
 
 function setup() {
+    tmp=`which shutdown`
+    DEST_DIR=${tmp%/*}
     echo "1. setup"
     echo "cp $SOURCE_FILE to $DEST_DIR..."
     test -d $DEST_DIR || mkdir -p $DEST_DIR && cp $SOURCE_FILE ${DEST_DIR}/suredown
@@ -27,6 +27,8 @@ function setup() {
 }
 
 function remove(){
+    tmp=`which suredown`
+    DEST_DIR=${tmp%/*}
     echo "2. remove"
     if [ -h ${DEST_DIR}/shutdown ]; then
         mv ${DEST_DIR}/shutdown_ ${DEST_DIR}/shutdown
@@ -40,7 +42,6 @@ function remove(){
     if [ -h ${DEST_DIR}/poweroff ]; then
         mv ${DEST_DIR}/poweroff_ ${DEST_DIR}/poweroff
     fi
-    rmdir $BAK_DIR 
     rm ${DEST_DIR}/suredown
 }
 
