@@ -10,11 +10,10 @@ function setup() {
     test -d $DEST_DIR || mkdir -p $DEST_DIR && cp $SOURCE_FILE ${DEST_DIR}suredown
 
     echo "setup surdown files..."
-    test -d $BAK_DIR || mkdir -p $BAK_DIR
-    mv ${DEST_DIR}shutdown $BAK_DIR
-    mv ${DEST_DIR}reboot $BAK_DIR
-    mv ${DEST_DIR}halt $BAK_DIR
-    mv ${DEST_DIR}poweroff $BAK_DIR
+    mv ${DEST_DIR}shutdown ${DEST_DIR}shutdown_ 
+    mv ${DEST_DIR}reboot ${DEST_DIR}reboot_
+    mv ${DEST_DIR}halt ${DEST_DIR}halt_
+    mv ${DEST_DIR}poweroff ${DEST_DIR}poweroff_
     ln -s ${DEST_DIR}suredown ${DEST_DIR}shutdown
     ln -s ${DEST_DIR}suredown ${DEST_DIR}reboot
     ln -s ${DEST_DIR}suredown ${DEST_DIR}halt
