@@ -3,7 +3,8 @@
 DEST_DIR=
 SOURCE_FILE=./suredown.sh
 
-function setup() {
+setup()
+{
     tmp=`which shutdown`
     DEST_DIR=${tmp%/*}
     echo "1. setup"
@@ -26,7 +27,8 @@ function setup() {
     echo "Done!"
 }
 
-function remove(){
+remove()
+{
     tmp=`which suredown`
     DEST_DIR=${tmp%/*}
     echo "2. remove"
