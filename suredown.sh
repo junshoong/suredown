@@ -13,7 +13,7 @@ clear
 for SCRIPT in ${SCRIPT_DIR}/*
 do
     if [ -f $SCRIPT -a -x $SCRIPT ]; then
-        echo -e "${GREEN}${BOLD}${SCRIPT##*/}${NONE}"
+        echo -e "${GREEN}${BOLD}${SCRIPT##*/??-}${NONE}"
         $SCRIPT
     fi
 done
