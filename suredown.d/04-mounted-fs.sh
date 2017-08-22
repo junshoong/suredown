@@ -1,2 +1,2 @@
 #!/bin/sh
-df -a | grep -v '^[(sysfs)(proc)(tmpfs)(devpts)]'
+df -a | grep -vE '^(sysfs|proc|tmpfs|devpts)'
